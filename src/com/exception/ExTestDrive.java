@@ -1,10 +1,9 @@
 package com.exception;
 
-import org.jetbrains.annotations.NotNull;
 
 public class ExTestDrive {
 
-    public static void main(String @NotNull [] args) {
+    public static void main(String [] args) {
         String test = args[0];
         System.out.print("t");
         try {
