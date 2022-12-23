@@ -1,10 +1,12 @@
 package com.set;
 
-public class Song {
-    String title;
-    String artist;
-    String rating;
-    String bpm;
+import org.jetbrains.annotations.NotNull;
+
+public class Song implements Comparable<Song>{
+    private String title;
+    private String artist;
+    private String rating;
+    private String bpm;
 
     Song(String t, String a, String r, String b){
         this.title = t;
@@ -32,5 +34,10 @@ public class Song {
 
     public String toString(){
         return title;
+    }
+
+    @Override
+    public int compareTo(Song s) {
+        return this.title.compareTo(s.title);
     }
 }

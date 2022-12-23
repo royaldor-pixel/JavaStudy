@@ -2,10 +2,9 @@ package com.set;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 
 public class JukeBox1 {
     ArrayList<Song> songList = new ArrayList<>();
@@ -14,10 +13,17 @@ public class JukeBox1 {
         new JukeBox1().go();
     }
 
-    public void go(){
+    class ArtistComparator implements Comparator<Song> {
+        @Override
+        public int compare(Song one, Song two) {
+            return one.getArtist().compareTo(two.getArtist());
+        }
+    }
+
+    public void go() {
         getSongs();
         System.out.println(songList);
-        Collections.sort(songList);
+        songList.sort(new ArtistComparator());
     }
 
     void getSongs() {
@@ -35,7 +41,7 @@ public class JukeBox1 {
 
     void addSong(String lineToParse) {
         String[] tokens = lineToParse.split("/");
-        Song nextSong = new Song(tokens[0],tokens[1],tokens[2],tokens[3]);
+        Song nextSong = new Song(tokens[0], tokens[1], tokens[2], tokens[3]);
         songList.add(nextSong);
     }
 }
