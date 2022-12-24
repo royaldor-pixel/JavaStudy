@@ -13,7 +13,7 @@ public class JukeBox1 {
         new JukeBox1().go();
     }
 
-    class ArtistComparator implements Comparator<Song> {
+    private class ArtistComparator implements Comparator<Song> {
         @Override
         public int compare(Song one, Song two) {
             return one.getArtist().compareTo(two.getArtist());
